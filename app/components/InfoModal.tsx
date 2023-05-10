@@ -90,7 +90,7 @@ const InfoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
               <XMarkIcon className="text-white w-6" />
             </div>
             <div className="relative lg:absolute bottom-0 lg:bottom-[10%] left-10">
-              <p className="text-white text-lg md:text-2xl h-full lg:text-4xl font-bold mb-8">
+              <p className="max-w-[25rem] lg:max-w-none text-white text-xl md:text-2xl h-full lg:text-4xl font-bold mt-4 mb-2 md:mt-0 md:mb-8">
                 {detail?.original_title ?? detail?.original_name}
               </p>
               <div className="flex flex-row gap-4 items-center">
