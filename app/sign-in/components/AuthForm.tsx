@@ -165,10 +165,10 @@ const AuthForm = () => {
                         icon={BsGoogle}
                         onClick={() => socialAction('google')}
                     />
-                    <AuthSocialButton
+                    {/* <AuthSocialButton
                         icon={BsGithub}
                         onClick={() => socialAction('github')}
-                    />
+                    /> */}
 
                 </div>
 
