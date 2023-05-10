@@ -33,6 +33,7 @@ export const config = {
     // "/users/:path*",
     "/browse/:path*",
     "/profiles",
-    "/videos/:path*",
+    "/films/:path*",
+    "/tvs/:path*",
   ]
 };
