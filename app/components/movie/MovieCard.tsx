@@ -44,7 +44,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                                     <span className='text-white pt-[1px] pl-[1px] text-base'>
                                         {Math.round(data.vote_average * 10)}
                                     </span>
-                                    <span className='text-xs'> %</span>
+                                    <span className='text-xs text-white '> %</span>
                                 </div>
                             </div>
                         </div>
@@ -61,7 +61,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                     <h2 onClick={redirectToWatch} className='text-white pb-2 text-lg font-semibold mt-8 hover:text-red-700 cursor-pointer'>
                         {data.original_title ?? data.original_name}
                     </h2>
-                    <p>
+                    <p className='text-white '>
                         ({moment(data.release_date).format('LL')})
                     </p>
                     <p className="text-cyan-400 font-semibold mt-4 uppercase">
