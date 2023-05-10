@@ -9,7 +9,7 @@ export const fechDetailMovies = async (
     mediaType: string,
 ): Promise<MovieInterface> => {
     const resp = await axios.get<MovieInterface>(`${baseurl}/${mediaType}/${videoId}?api_key=${apikey}`);
-    console.log(resp, 'DETAIL HELPER');
+    console.log(resp, `DETAIL ${mediaType} HELPER`);
     const itemMovieList = resp.data;
     // return transformSmallMovieIntoItem(itemMovieList); 
     const movieArr: MovieInterface = {
@@ -22,7 +22,8 @@ export const fechDetailMovies = async (
         belongs_to_collection: itemMovieList.belongs_to_collection,
         media_type: itemMovieList.media_type,
         original_language: itemMovieList.original_language,
-        original_title: itemMovieList.original_title,
+        original_name: itemMovieList.original_name ?? null,
+        original_title: itemMovieList.original_title ?? null,
         overview: itemMovieList.overview,
         popularity: itemMovieList.popularity,
         poster_path: itemMovieList.poster_path,

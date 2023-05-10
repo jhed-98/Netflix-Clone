@@ -19,7 +19,7 @@ interface InfoModalProps {
 const InfoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
   const [isVisible, setIsVisible] = useState<boolean>(!!visible);
 
-  const { movieId } = useInfoModalStore();
+  const { movieId, movieType } = useInfoModalStore();
 
   const [detail, setDetails] = useState<MovieInterface>();
   const [movies, setMovies] = useState<ItemVideoInterface[]>([]);
@@ -28,12 +28,12 @@ const InfoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
 
   useEffect(() => {
     setIsVisible(!!visible);
-    fechDetailMovies(movieId, 'movie').then(
+    fechDetailMovies(movieId, movieType).then(
       resp => {
         setDetails(resp);
       }
     )
-    fechItemMovies(movieId, 'movie').then(
+    fechItemMovies(movieId, movieType).then(
       resp => {
         setMovies(resp);
       }
@@ -68,10 +68,13 @@ const InfoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
             {/* <video poster={`https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${detail?.backdrop_path}`} autoPlay muted loop src={`https://www.themoviedb.org/video/play?key=KydqdKKyGEk`} className="w-full brightness-[60%] object-cover h-full" /> */}
             {/* <video poster={`https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${detail?.backdrop_path}`} autoPlay muted loop src={`http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4`} className="w-full brightness-[60%] object-cover h-full" /> */}
 
-            <div className='embed-responsive'>
-              {filteredVideo().map((movie) => (
-                // movie.type === "Trailer" && (
-                < iframe key={movie.id}
+            {filteredVideo().length < 1 && (
+              <video poster={`https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${detail?.backdrop_path}`} autoPlay muted loop src="" className="w-full brightness-[60%] object-cover h-full" />
+            )}
+            {filteredVideo().map((movie) => (
+              // movie.type === "Trailer" && (
+              <div key={movie.id} className='embed-responsive'>
+                <iframe
                   width="853"
                   height="480"
                   src={`https://www.youtube.com/embed/${movie.key}?autoplay=1`}
@@ -80,15 +83,15 @@ const InfoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
                   allowFullScreen
                   title={`${detail?.original_title}`}
                 />
-                // )
-              ))}
-            </div>
+              </div>
+              // )
+            ))}
             <div onClick={handleClose} className="cursor-pointer absolute top-3 right-3 h-10 w-10 rounded-full bg-black bg-opacity-70 flex items-center justify-center">
               <XMarkIcon className="text-white w-6" />
             </div>
             <div className="absolute bottom-[10%] left-10">
               <p className="text-white text-3xl md:text-4xl h-full lg:text-5xl font-bold mb-8">
-                {detail?.original_title}
+                {detail?.original_title ?? detail?.original_name}
               </p>
               <div className="flex flex-row gap-4 items-center">
                 {/* <PlayButton movieId={data?.id} /> */}
@@ -99,8 +102,8 @@ const InfoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
 
           <div className="px-12 py-8">
             <div className="flex flex-row items-center gap-2 mb-8">
-              <p className="text-green-400 font-semibold text-lg">
-                New
+              <p className="text-green-400 font-semibold text-lg uppercase">
+                {movieType}
               </p>
               <p className="text-white text-lg">
                 ({moment(detail?.release_date).format('Y')})

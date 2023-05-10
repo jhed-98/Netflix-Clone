@@ -1,19 +1,16 @@
 'use client'
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import MovieList from './components/MovieList';
-import { useMovie } from '../hooks/useMovie';
-import { MovieInterface } from '../types';
-import { fechAllMovies } from '../helpers/fechAllMovies';
+
+import React, { useState } from 'react'
 import { useTendingMovies } from '../hooks/useTendingMovies';
 import useInfoModalStore from '../hooks/useInfoModalStore';
 import InfoModal from '../components/InfoModal';
+import MovieList from '../components/movie/MovieList';
 
 
 const Browse = () => {
 
     const [currentPage, setCurrentPage] = useState(1);
-    const { isLoading, movies } = useTendingMovies('movie', currentPage);
+    const { isLoading, movies } = useTendingMovies('all', currentPage);
 
     const nextPage = () => {
         setCurrentPage(currentPage + 1);

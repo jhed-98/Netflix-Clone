@@ -58,7 +58,7 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({
                     </Link>
                     <div className="flex-row ml-8 gap-7 hidden lg:flex">
                         <NavbarItem label="Home" url="/browse" />
-                        <NavbarItem label="Series" />
+                        <NavbarItem label="Series" url="/tvs" />
                         <NavbarItem label="Films" url="/films" />
                         <NavbarItem label="New & Popular" />
                         <NavbarItem label="My List" />

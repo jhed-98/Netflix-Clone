@@ -1,7 +1,7 @@
-import CardParams from "./components/CardParams";
+import CardParams from "@/app/components/card/CardParams";
 
 interface IParams {
-    videoId: string;
+    filmId: string;
 }
 
 const VideoId = async ({ params }: { params: IParams }) => {
@@ -9,7 +9,7 @@ const VideoId = async ({ params }: { params: IParams }) => {
     return (
         <div className="w-screen bg-black">
             {/* <CardParams videoId={params.videoId} /> */}
-            <CardParams videoId={params.videoId} mediaType='movie' />
+            <CardParams videoId={params.filmId} mediaType='movie' />
         </div>
     );
 }

@@ -10,7 +10,7 @@ export const fechItemMovies = async (
 ): Promise<ItemVideoInterface[]> => {
     const resp = await axios.get<FetchAllVideoResponse>(`${baseurl}/${mediaType}/${videoId}/videos?api_key=${apikey}`);
     const itemMovieList = resp.data.results;
-    console.log(resp.data.results, 'VIDEOS HELPER');
+    console.log(resp.data.results, `VIDEOS ${mediaType} HELPER`);
 
     return transformSmalVideoIntoItem(itemMovieList);
 }

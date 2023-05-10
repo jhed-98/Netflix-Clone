@@ -1,11 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 import { MovieInterface } from '@/app/types';
-import axios from 'axios';
-import Image from 'next/image';
-import React, { useEffect, useState } from 'react'
 import MovieCard from './MovieCard';
-import Pagination from '@/app/components/Pagination';
 
 interface MovieListProps {
     dataVideo: MovieInterface[];
@@ -22,7 +18,6 @@ const MovieList: React.FC<MovieListProps> = ({ title, dataVideo }) => {
                         <MovieCard key={movieData.id} data={movieData} />
                     ))}
                 </div>
-                {/* <Pagination /> */}
             </div>
         </div>
 

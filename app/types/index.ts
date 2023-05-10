@@ -26,13 +26,14 @@ export interface SmallMovieInterface {
     media_type: string;
     original_language: string;
     original_title: string;
+    original_name: string;
     overview: string;
     popularity: string;
     poster_path: string;
     title: string;
     release_date: string;
     video: boolean;
-    vote_average: string;
+    vote_average: number;
     vote_count: string;
 }
 export interface MovieInterface {
@@ -46,13 +47,14 @@ export interface MovieInterface {
     media_type: string;
     original_language: string;
     original_title: string;
+    original_name: string;
     overview: string;
     popularity: string;
     poster_path: string;
     title: string;
     release_date: string;
     video: boolean;
-    vote_average: string;
+    vote_average: number;
     vote_count: string;
 }
 export interface GenerInterface {

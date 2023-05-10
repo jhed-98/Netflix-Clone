@@ -1,3 +1,4 @@
+
 'use client'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
@@ -10,11 +11,11 @@ import { usePopularType } from '../hooks/usePopularType';
 import MovieList from '../components/movie/MovieList';
 
 
-const Films = () => {
+const Tvs = () => {
 
     const [currentPage, setCurrentPage] = useState(1);
     // const { isLoading, movies } = useMovie(currentPage);
-    const { isLoading, movies } = usePopularType(currentPage, 'movie');
+    const { isLoading, movies } = usePopularType(currentPage, 'tv');
 
     const nextPage = () => {
         setCurrentPage(currentPage + 1);
@@ -29,10 +30,10 @@ const Films = () => {
     return (
         <div className='pt-24'>
             <InfoModal visible={isOpen} onClose={closeModal} />
-            {/* <p>You view {currentPage} pages</p> */}
+            <p>You view {currentPage} pages</p>
 
             <div className='max-w-7xl mx-auto sm:px-6 lg:px-8 px-6 pb-20'>
-                <MovieList dataVideo={movies} title="FILMS" />
+                <MovieList dataVideo={movies} title="TVS" />
 
                 <div className='py-4 flex justify-center'>
 
@@ -52,4 +53,5 @@ const Films = () => {
     )
 }
 
-export default Films
+export default Tvs
+
