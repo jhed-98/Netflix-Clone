@@ -32,7 +32,7 @@ const Tvs = () => {
             <InfoModal visible={isOpen} onClose={closeModal} />
             {/* <p>You view {currentPage} pages</p> */}
 
-            <div className='max-w-7xl mx-auto sm:px-6 lg:px-8 px-6 pb-20'>
+            <div className='max-w-[100rem] mx-auto sm:px-6 lg:px-8 px-6 pb-20'>
                 <MovieList dataVideo={movies} title="TVS" />
 
                 <div className='py-4 flex justify-center'>

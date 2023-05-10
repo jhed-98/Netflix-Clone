@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { PlayIcon } from '@heroicons/react/24/solid';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 interface PlayButtonProps {
   movieId: string;
+  mediaType: string;
 }
 
-const PlayButton: React.FC<PlayButtonProps> = ({ movieId }) => {
+const PlayButton: React.FC<PlayButtonProps> = ({ movieId, mediaType }) => {
   const router = useRouter();
+
+  const redirectToWatch = useCallback(() => {
+    if (mediaType === "movie") {
+      router.push(`/films/${movieId}`);
+    } else {
+      router.push(`/tvs/${movieId}`);
+    }
+  }, [router, movieId]);
 
   return (
     <button
-      onClick={() => router.push(`/watch/${movieId}`)}
+      onClick={redirectToWatch}
       className="
         bg-white 
         rounded-md 
@@ -25,6 +34,7 @@ const PlayButton: React.FC<PlayButtonProps> = ({ movieId }) => {
         items-center
         hover:bg-neutral-300
         transition
+        text-black
         "
     >
       <PlayIcon className="w-4 md:w-7 text-black mr-1" />

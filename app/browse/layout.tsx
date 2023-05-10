@@ -9,7 +9,7 @@ export default async function BrowsesLayout({
   return (
     // @ts-expect-error Server Component
     <Navbar>
-      <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 px-6 pb-20">
+      <div className="">
         {children}
       </div>
     </Navbar>
