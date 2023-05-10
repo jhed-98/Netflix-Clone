@@ -41,7 +41,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                         <div className='w-10 h-10 p-[2px] bg-gray-900 rounded-full border-2' style={{ borderColor: "#ffffff !important" }}>
                             <div className='relative inline-block w-full h-full text-center'>
                                 <div className='h-full w-full flex items-center justify-center'>
-                                    <span className='pt-[1px] pl-[1px] text-base'>
+                                    <span className='text-white pt-[1px] pl-[1px] text-base'>
                                         {Math.round(data.vote_average * 10)}
                                     </span>
                                     <span className='text-xs'> %</span>
@@ -58,7 +58,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                         </div>
                     </div>
 
-                    <h2 onClick={redirectToWatch} className='pb-2 text-lg font-semibold mt-4 hover:text-red-700 cursor-pointer'>
+                    <h2 onClick={redirectToWatch} className='text-white pb-2 text-lg font-semibold mt-8 hover:text-red-700 cursor-pointer'>
                         {data.original_title ?? data.original_name}
                     </h2>
                     <p>

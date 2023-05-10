@@ -26,7 +26,7 @@ export default function Home() {
                 <div className='grid grid-cols-2 gap-4 py-4'>
                     <div className='bg-gradient-netflix'>
                         <div className='w-full'>
-                            <div className='overflow-hidden w-full px-9 pb-9 pt-6'>
+                            <div className='overflow-hidden w-full px-2 lg:px-9 pb-2 lg:pb-9 pt-6'>
                                 <div className='flex flex- mt-0'>
                                     <div className='w-full relative flex'>
                                         <img width="100%" src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/cards/v2.1/enjoyOnTv/en.png" alt="Disfruta en tu TV"
@@ -35,7 +35,7 @@ export default function Home() {
                                 </div>
                                 <div className='flex p-0 box-border'>
                                     <div className='w-full flex justify-center flex-col'>
-                                        <h2 className="text-white text-lg md:text-3xl font-semibold mb-4">Disfruta en tu TV</h2>
+                                        <h2 className="text-white text-lg md:text-2xl lg:text-3xl font-semibold mb-4">Disfruta en tu TV</h2>
                                         <p className="text-white text-xs md:text-sm">Ve en smart TV, PlayStation, Xbox, Chromecast, Apple TV, reproductores de Blu-ray y más.</p>
                                     </div>
                                 </div>
@@ -44,7 +44,7 @@ export default function Home() {
                     </div>
                     <div className='bg-gradient-netflix'>
                         <div className='w-full'>
-                            <div className='overflow-hidden w-full px-9 pb-9 pt-6'>
+                            <div className='overflow-hidden w-full px-2 lg:px-9 pb-2 lg:pb-9 pt-6'>
                                 <div className='flex flex- mt-0'>
                                     <div className='w-full relative flex'>
                                         <img width="100%" src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/cards/v2.1/watchEverywhere/en.png" alt="Disfruta donde quieras"
@@ -53,7 +53,7 @@ export default function Home() {
                                 </div>
                                 <div className='flex p-0 box-border'>
                                     <div className='w-full flex justify-center flex-col'>
-                                        <h2 className="text-white text-lg md:text-3xl font-semibold mb-4">Disfruta donde quieras</h2>
+                                        <h2 className="text-white text-lg md:text-2xl lg:text-3xl font-semibold mb-4">Disfruta donde quieras</h2>
                                         <p className="text-white text-xs md:text-sm">Películas y series ilimitadas en tu teléfono, tablet, computadora y TV.</p>
                                     </div>
                                 </div>

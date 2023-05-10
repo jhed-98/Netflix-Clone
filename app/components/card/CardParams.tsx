@@ -10,6 +10,7 @@ import { ItemVideoInterface } from '@/app/types';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/navigation';
 import CardView from './CardView';
+import { FaLink } from "react-icons/fa";
 
 interface CardParamsProps {
     videoId: string;
@@ -65,7 +66,7 @@ const CardParams: React.FC<CardParamsProps> = ({ videoId, mediaType }) => {
             {isLoadingDetail && <Loading />}
             <nav className={`fixed w-full p-4 z-50 mt-16 flex flex-row items-center gap-8  transition duration-500 ${showBackground ? 'bg-zinc-900 bg-opacity-90' : ''}`}>
                 <ArrowLeftIcon onClick={() => router.push('/browse')} className="w-4 md:w-10 text-white cursor-pointer hover:opacity-80 transition" />
-                <p className="text-white text-xl lg:text-2xl font-bold">
+                <p className="text-white text-lg lg:text-2xl font-bold">
                     <span className="font-light">Viendo: </span>
                     <a href={detail?.homepage} target='_blank'>
                         {detail?.original_title ?? detail?.original_name}
@@ -73,7 +74,7 @@ const CardParams: React.FC<CardParamsProps> = ({ videoId, mediaType }) => {
                 </p>
             </nav>
 
-            <div className="relative w-full pt-12 px-8">
+            <div className="relative w-full pt-36 px-8">
                 <img className="h-auto lg:h-[45rem] w-full object-cover object-center opacity-20 bg-gray-900" src={`https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${detail?.backdrop_path}`} />
                 <div className='relative lg:absolute pt-0 md:pt-10 -mt-28 sm:-mt-72 lg:mt-0 top-0 w-full h-full grid grid-cols-1 lg:grid-cols-3 text-gray-200'>
                     <div className='flex justify-center items-center'>
@@ -81,7 +82,7 @@ const CardParams: React.FC<CardParamsProps> = ({ videoId, mediaType }) => {
                     </div>
                     <div className='w-full lg:max-w-2xl xl:max-w-3xl flex flex-col justify-center items-center lg:col-span-2 space-y-4'>
                         <div className='w-full flex justify-start'>
-                            <h1 className='text-white text-2xl lg:text-3xl'>
+                            <h1 className='text-white font-semibold text-2xl lg:text-3xl'>
                                 {detail?.original_title ?? detail?.original_name}   ({moment(detail?.release_date).format('Y')})
                             </h1>
                         </div>
@@ -91,6 +92,15 @@ const CardParams: React.FC<CardParamsProps> = ({ videoId, mediaType }) => {
                                 {detail?.overview}
                             </p>
                         </div>
+
+                        <div className=' w-full flex flex-col justify-start items-start'>
+                            <a href={detail?.homepage}>
+                                <div
+                                    className="bg-white rounded-md py-1 md:py-2 px-2 md:px-4w-auto text-xs lg:text-lg font-semibold flex flex-row items-center hover:bg-neutral-300 transition text-black">
+                                    <FaLink className="w-4 md:w-7 text-black mr-1" /> Sitio Web
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -98,7 +108,7 @@ const CardParams: React.FC<CardParamsProps> = ({ videoId, mediaType }) => {
             <div className='relative space-y-4 px-8 py-8'>
                 {/* <CardList data={movies} /> */}
                 <h2 className='text-white text-xl md:text-2xl mb-4'>Trailer</h2>
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
                     {filteredVideoPrimary().length < 1 && (
                         <h1>No hay Trailers Disponible</h1>
                     )}
@@ -111,7 +121,7 @@ const CardParams: React.FC<CardParamsProps> = ({ videoId, mediaType }) => {
                 </div>
                 <h2 className='text-white text-xl md:text-2xl mb-4'>Clips</h2>
 
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
                     {filteredVideoClip().length < 1 && (
                         <h1>No hay Clips Disponible</h1>
                     )}
