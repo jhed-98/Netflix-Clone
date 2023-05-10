@@ -24,7 +24,7 @@ const AuthForm = () => {
 
     useEffect(() => {
         if (session?.status === 'authenticated') {
-            router.push('/browse')
+            router.push('/profiles')
         }
     }, [session?.status, router]);
 
@@ -83,7 +83,7 @@ const AuthForm = () => {
                     }
 
                     if (callback?.ok) {
-                        router.push('/browse')
+                        router.push('/profiles')
                     }
                 })
                 .finally(() => setIsLoading(false))

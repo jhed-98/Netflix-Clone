@@ -4,7 +4,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 // Esta función se puede marcar como `async` si se usa `await` dentro
 export async function middleware(req: NextRequest) {
-
   const session = await getToken({ req, secret: process.env.NEXTAUTH_JWT_SECRET });
   // Informacion sobre el usuario
   // console.log(session);
@@ -34,5 +33,6 @@ export const config = {
     // "/users/:path*",
     "/browse/:path*",
     "/profiles",
+    "/videos/:path*",
   ]
 };

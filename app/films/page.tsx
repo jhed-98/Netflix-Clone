@@ -5,15 +5,14 @@ import MovieList from './components/MovieList';
 import { useMovie } from '../hooks/useMovie';
 import { MovieInterface } from '../types';
 import { fechAllMovies } from '../helpers/fechAllMovies';
-import { useTendingMovies } from '../hooks/useTendingMovies';
-import useInfoModalStore from '../hooks/useInfoModalStore';
 import InfoModal from '../components/InfoModal';
+import useInfoModalStore from '../hooks/useInfoModalStore';
 
 
-const Browse = () => {
+const Films = () => {
 
     const [currentPage, setCurrentPage] = useState(1);
-    const { isLoading, movies } = useTendingMovies('movie', currentPage);
+    const { isLoading, movies } = useMovie(currentPage);
 
     const nextPage = () => {
         setCurrentPage(currentPage + 1);
@@ -23,13 +22,14 @@ const Browse = () => {
             setCurrentPage(currentPage - 1);
         }
     }
-
     const { isOpen, closeModal } = useInfoModalStore();
 
     return (
         <div className='pt-24'>
             <InfoModal visible={isOpen} onClose={closeModal} />
-            <MovieList dataVideo={movies} title="TRENDING WEEK" />
+            <p>You view {currentPage} pages</p>
+
+            <MovieList dataVideo={movies} title="FILMS" />
 
             <div className='py-4 flex justify-center'>
 
@@ -48,4 +48,4 @@ const Browse = () => {
     )
 }
 
-export default Browse
+export default Films

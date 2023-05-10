@@ -6,6 +6,7 @@ import { BellIcon, MagnifyingGlassIcon, ChevronDownIcon } from '@heroicons/react
 import NavbarItem from './NavbarItem';
 import MobileMenu from './MobileMenu';
 import AccountMenu from './AccountMenu';
+import Link from "next/link";
 
 
 const TOP_OFFSET = 66;
@@ -23,7 +24,7 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({
 
     useEffect(() => {
         const handleScroll = () => {
-            console.log(window.scrollY)
+            // console.log(window.scrollY)
             if (window.scrollY >= TOP_OFFSET) {
                 setShowBackground(true)
             } else {
@@ -50,14 +51,17 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({
         <>
             <nav className="w-full fixed z-40">
                 <div className={`px-4 md:px-16 py-6 flex flex-row items-center transition duration-500 ${showBackground ? 'bg-zinc-900 bg-opacity-90' : ''}`}>
-                    <img src="/images/logo.png" className="h-4 lg:h-7" alt="Logo" />
+
+                    <Link
+                        href="/browse" passHref >
+                        <img src="/images/logo.png" className="h-9 lg:h-10" alt="Logo" />
+                    </Link>
                     <div className="flex-row ml-8 gap-7 hidden lg:flex">
-                        <NavbarItem label="Home" active />
+                        <NavbarItem label="Home" url="/browse" />
                         <NavbarItem label="Series" />
-                        <NavbarItem label="Films" />
+                        <NavbarItem label="Films" url="/films" />
                         <NavbarItem label="New & Popular" />
                         <NavbarItem label="My List" />
-                        <NavbarItem label="Browse by Languages" />
                     </div>
                     <div onClick={toggleMobileMenu} className="lg:hidden flex flex-row items-center gap-2 ml-8 cursor-pointer relative">
                         <p className="text-white text-sm">Browse</p>
